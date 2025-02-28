@@ -28,11 +28,7 @@ export default {
                     alert('Ocorreu um erro');
                     console.log(error);
                 })
-            }
-
-           
-            
-            
+            }     
         },
         validarCampos() {    
             let erro = false;

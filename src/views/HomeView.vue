@@ -1,18 +1,42 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div>
+    <nav class="navbar navbar-light bg-light menu_superior">
+      <div class="container">
+        <div>Sitema de Controle de Medicamentos</div>
+        <div class="navbar-nav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="">Sair</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="d-flex">
+      <div class="list-group menu_esquerdo">
+        <router-link class="list-group-item" to="" exact-active-class="true">
+          <i class="bi bi-person-vcard-fill">Usuário</i>
+        </router-link>
+        <router-link class="list-group-item" :to="{ name: 'pacientes'}" exact-active-class="true">
+          <i class="bi bi-clipboard2-heart">Paciente</i>
+        </router-link>
+      </div>
+
+      <div class="container-fluid">
+        <router-view></router-view>
+      </div>
+    </div>
   </div>
 </template>
 
-<script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+<style scoped>
+  .menu_superior {
+    border-bottom: solid 1px #ccc;
+  }
 
-export default {
-  name: "HomeView",
-  components: {
-    HelloWorld,
-  },
-};
-</script>
+  .menu_esquerdo {
+    border-right: solid 1px #ccc;
+    width: 250px;
+  }
+</style>
