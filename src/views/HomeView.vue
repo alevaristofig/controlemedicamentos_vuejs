@@ -21,6 +21,9 @@
         <router-link class="list-group-item" :to="{ name: 'pacientes'}" exact-active-class="true">
           <i class="bi bi-clipboard2-heart">Paciente</i>
         </router-link>
+        <router-link class="list-group-item" :to="{ name: 'medicamentos'}" exact-active-class="true">
+          <i class="bi bi-capsule">Paciente</i>
+        </router-link>
       </div>
 
       <div class="container-fluid">

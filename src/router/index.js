@@ -3,6 +3,7 @@ import HomeView from "../views/HomeView.vue";
 import UsuarioView from "@/views/CadastroUsuarioView.vue";
 import PacienteComponent from "@/components/pacientes/PacienteComponent.vue";
 import CadastroPacienteComponent from "@/components/pacientes/CadastroPacienteComponent.vue";
+import MedicamentoCompoment from "@/components/medicamentos/MedicamentoCompoment.vue";
 
 const routes = [
   {
@@ -26,6 +27,11 @@ const routes = [
         path: 'cadastropaciente',
         component: CadastroPacienteComponent,
         name: 'cadastropaciente'
+      },
+      {
+        path: 'medicamento',
+        component: MedicamentoCompoment,
+        name: 'medicamentos'
       }
     ]
   },
