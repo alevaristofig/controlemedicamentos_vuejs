@@ -27,7 +27,7 @@ export default {
                 .catch((error) =>{
                     alert('Ocorreu um erro');
                     console.log(error);
-                })
+                });
             }     
         },
         validarCampos() {    

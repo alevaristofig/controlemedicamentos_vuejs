@@ -16,7 +16,24 @@ export default {
     methods: {
         salvarPaciente() {
             if(!this.validarCampos()) {  
-                alert('entrou')
+                let data = {
+                    nome: this.nome,
+                    raca: this.raca,
+                    peso: this.peso,
+                    cor:  this.cor,
+                    idade: this.idade,
+                }
+
+
+                axios.post('http://localhost:8080/v1/pacientes',data)
+                .then(() => {
+                    alert('Usuario cadastrado com sucesso');
+                    this.$router.push('/');
+                })
+                .catch((error) =>{
+                    alert('Ocorreu um erro');
+                    console.log(error);
+                })
             }            
         },
         validarCampos() {  
