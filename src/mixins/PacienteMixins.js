@@ -27,7 +27,7 @@ export default {
 
                 axios.post('http://localhost:8080/v1/pacientes',data)
                 .then(() => {
-                    alert('Usuario cadastrado com sucesso');
+                    alert('Paciente cadastrado com sucesso');
                     this.$router.push('/');
                 })
                 .catch((error) =>{
