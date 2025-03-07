@@ -5,6 +5,8 @@ import PacienteComponent from "@/components/pacientes/PacienteComponent.vue";
 import CadastroPacienteComponent from "@/components/pacientes/CadastroPacienteComponent.vue";
 import MedicamentoCompoment from "@/components/medicamentos/MedicamentoCompoment.vue";
 import CadastroMedicamentoComponent from "@/components/medicamentos/CadastroMedicamentoComponent.vue";
+import IndexAplicacao from "@/components/aplicacao/IndexAplicacao.vue";
+import CadastroAplicacao from "@/components/aplicacao/CadastroAplicacao.vue";
 
 const routes = [
   {
@@ -38,6 +40,16 @@ const routes = [
         path: 'cadastromedicamento',
         component: CadastroMedicamentoComponent,
         name: 'cadastromedicamento'
+      },
+      {
+        path: 'aplicacao',
+        component: IndexAplicacao,
+        name: 'aplicacao'
+      },
+      {
+        path: 'cadastroaplicacao',
+        component: CadastroAplicacao,
+        name: 'cadastroaplicacao'
       }
     ]
   },

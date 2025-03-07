@@ -24,6 +24,9 @@
         <router-link class="list-group-item" :to="{ name: 'medicamentos'}" exact-active-class="true">
           <i class="bi bi-capsule">Medicamentos</i>
         </router-link>
+        <router-link class="list-group-item" :to="{ name: 'aplicacao'}" exact-active-class="true">
+          <i class="bi bi-bandaid-fill">Aplicação</i>
+        </router-link>
       </div>
 
       <div class="container-fluid">

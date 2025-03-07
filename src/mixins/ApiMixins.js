@@ -20,14 +20,14 @@ export default {
                 }
 
                 axios.post('http://localhost:8080/v1/usuarios',data)
-                .then(() => {
-                    alert('Usuario cadastrado com sucesso');
-                    this.$router.push('/');
-                })
-                .catch((error) =>{
-                    alert('Ocorreu um erro');
-                    console.log(error);
-                });
+                    .then(() => {
+                        alert('Usuario cadastrado com sucesso');
+                        this.$router.push('/');
+                    })
+                    .catch((error) =>{
+                        alert('Ocorreu um erro');
+                        console.log(error);
+                    });
             }     
         },
         validarCampos() {    
