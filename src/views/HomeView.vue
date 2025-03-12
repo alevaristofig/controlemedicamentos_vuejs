@@ -15,7 +15,7 @@
 
     <div class="d-flex">
       <div class="list-group menu_esquerdo">
-        <router-link class="list-group-item" to="" exact-active-class="true">
+        <router-link class="list-group-item" :to="{ name: 'usuario'}" exact-active-class="true">
           <i class="bi bi-person-vcard-fill">Usuário</i>
         </router-link>
         <router-link class="list-group-item" :to="{ name: 'pacientes'}" exact-active-class="true">

@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
-import UsuarioView from "@/views/CadastroUsuarioView.vue";
+import UsuarioCompoment from "@/components/usuarios/UsuarioCompoment.vue";
+import CadastroUsuarioView from "@/views/CadastroUsuarioView.vue";
 import PacienteComponent from "@/components/pacientes/PacienteComponent.vue";
 import CadastroPacienteComponent from "@/components/pacientes/CadastroPacienteComponent.vue";
 import MedicamentoCompoment from "@/components/medicamentos/MedicamentoCompoment.vue";
@@ -25,6 +26,11 @@ const routes = [
             name: 'cadastropaciente'
           }         
         ]*/
+      },
+      {
+        path: 'usuario',
+        component: UsuarioCompoment,
+        name: 'usuario'
       },
       {
         path: 'cadastropaciente',
@@ -56,7 +62,7 @@ const routes = [
   {
     path: "/cadastrousuario",
     name: "cadastrousuario",
-    component: UsuarioView
+    component: CadastroUsuarioView
   }
 ];
 
