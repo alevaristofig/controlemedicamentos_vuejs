@@ -2,6 +2,7 @@ import axios from "axios";
 
 export default {
     data: () => ({
+        pacientes: [],
         nome: '',
         raca: '',
         peso: '',
@@ -14,6 +15,15 @@ export default {
         classIdade: false,
     }),
     methods: {
+        listar(){
+            axios.get('http://localhost:8083/v1/pacientes')
+                    .then((response) => {                        
+                        this.pacientes = response.data
+                    })
+                    .catch((error) =>{                        
+                        console.log(error);
+                })
+        },
         salvarPaciente() {
             if(!this.validarCampos()) {  
                 let data = {
@@ -26,13 +36,13 @@ export default {
 
 
                 axios.post('http://localhost:8080/v1/pacientes',data)
-                .then(() => {
-                    alert('Paciente cadastrado com sucesso');
-                    this.$router.push('/');
-                })
-                .catch((error) =>{
-                    alert('Ocorreu um erro');
-                    console.log(error);
+                    .then(() => {
+                        alert('Paciente cadastrado com sucesso');
+                        this.$router.push('/');
+                    })
+                    .catch((error) =>{
+                        alert('Ocorreu um erro');
+                        console.log(error);
                 })
             }            
         },
