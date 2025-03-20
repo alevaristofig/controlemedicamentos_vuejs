@@ -2,6 +2,7 @@ import axios from "axios";
 
 export default {
     data: () => ({
+        medicamentos: [],
         nome: '',
         preco: '',
         quantidade: '',
@@ -12,6 +13,15 @@ export default {
         classManipulado: false
     }),
     methods: {
+        listar() {
+            axios.get('http://localhost:8083/v1/medicamentos')
+                .then((response) => {                    
+                    this.medicamentos = response.data;
+                })
+                .catch((error) =>{
+                    alert('Ocorreu um erro');                    
+            });
+        },
         salvarMedicamentos() {
             if(!this.validarCampos()) {  
                 alert('entrou')
