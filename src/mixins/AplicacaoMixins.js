@@ -22,7 +22,7 @@ export default {
     }),
     methods: {
         listar() {
-            axios.get('http://localhost:8080/v1/aplicacao')
+            axios.get('http://localhost:8083/v1/aplicacao')
                     .then((response) => {
                         this.aplicacoes = response.data
                     })
