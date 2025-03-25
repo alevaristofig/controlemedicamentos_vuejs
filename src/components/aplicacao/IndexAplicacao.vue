@@ -8,9 +8,20 @@
             <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">NOME</th>                    
+                    <th scope="col">NOME</th>  
+                    <th scope="col">DATA APLICAÇÃO</th>                  
                 </tr>
             </thead>
         </table>
     </div>
 </template>
+
+<script>
+import AplicacaoMixins from '@/mixins/AplicacaoMixins';
+
+export default {
+    name: 'Aplicacao',
+    mixins: [AplicacaoMixins]
+}
+
+</script>

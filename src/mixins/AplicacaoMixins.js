@@ -2,6 +2,7 @@ import axios from "axios";
 
 export default {
     data: () => ({
+        aplicacoes: [],
         classPaciente: false,
         classMedicamento: false,
         paciente: '',
@@ -20,6 +21,15 @@ export default {
         ],
     }),
     methods: {
+        listar() {
+            axios.get('http://localhost:8080/v1/aplicacao')
+                    .then((response) => {
+                        this.aplicacoes = response.data
+                    })
+                    .catch((error) =>{                        
+                        console.log(error);
+                });
+        },
         aplicarMedicamentos() {
             if(this.validarCampos()) {                 
                 let dataAtual = new Date();

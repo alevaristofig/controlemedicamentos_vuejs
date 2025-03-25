@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default {
-    data: () => ({
+    data: () => ({        
         nome: '',
         email: '',
         senha: '',
@@ -9,7 +9,7 @@ export default {
         classEmail: false,
         classSenha: false
     }),
-    methods: {
+    methods: {        
         salvarUsuario() {
 
             if(this.validarCampos()) {               
@@ -19,7 +19,7 @@ export default {
                     'senha': this.senha
                 }
 
-                axios.post('http://localhost:8080/v1/usuarios',data)
+                axios.post('http://localhost:8083/v1/usuarios',data)
                     .then(() => {
                         alert('Usuario cadastrado com sucesso');
                         this.$router.push('/');
@@ -27,7 +27,7 @@ export default {
                     .catch((error) =>{
                         alert('Ocorreu um erro');
                         console.log(error);
-                    });
+                });
             }     
         },
         validarCampos() {    
