@@ -5,6 +5,7 @@ export default {
         aplicacoes: [],
         classPaciente: false,
         classMedicamento: false,
+        finalizado: '',
         paciente: '',
         pacientes: [
             { id: 1, nome: 'Rubi' },
