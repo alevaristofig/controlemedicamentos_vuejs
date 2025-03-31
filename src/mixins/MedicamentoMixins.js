@@ -22,6 +22,18 @@ export default {
                     alert('Ocorreu um erro');                    
             });
         },
+        buscar(id) {
+            axios.get(`http://localhost:8083/v1/medicamentos/${id}`)
+                .then((response) => {                    
+                    this.nome = response.data.nome
+                    this.preco = response.data.preco
+                    this.quantidade = response.data.quantidade
+                    this.manipulado = response.data.manipulado ? 'S' : 'N';                    
+                })
+                .catch((error) =>{
+                    alert('Ocorreu um erro');                    
+            });
+        },
         salvarMedicamentos() {
             if(!this.validarCampos()) {  
                 alert('entrou')
