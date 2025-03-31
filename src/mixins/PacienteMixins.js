@@ -22,7 +22,20 @@ export default {
                     })
                     .catch((error) =>{                        
                         console.log(error);
-                })
+            })
+        },
+        buscar(id) {
+            axios.get(`http://localhost:8083/v1/pacientes/${id}`)
+                    .then((response) => {                        
+                        this.nome = response.data.nome
+                        this.raca = response.data.raca
+                        this.peso = response.data.peso
+                        this.cor = response.data.cor
+                        this.idade = response.data.idade
+                    })
+                    .catch((error) =>{                        
+                        console.log(error);
+            })
         },
         salvarPaciente() {
             if(!this.validarCampos()) {  

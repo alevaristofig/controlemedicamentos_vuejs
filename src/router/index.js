@@ -4,6 +4,7 @@ import UsuarioCompoment from "@/components/usuarios/UsuarioCompoment.vue";
 import CadastroUsuarioView from "@/views/CadastroUsuarioView.vue";
 import EditarUsuarioCompoment from "@/components/usuarios/EditarUsuarioCompoment.vue";
 import PacienteComponent from "@/components/pacientes/PacienteComponent.vue";
+import EditarPacienteComponent from "@/components/pacientes/EditarPacienteComponent.vue";
 import CadastroPacienteComponent from "@/components/pacientes/CadastroPacienteComponent.vue";
 import MedicamentoCompoment from "@/components/medicamentos/MedicamentoCompoment.vue";
 import CadastroMedicamentoComponent from "@/components/medicamentos/CadastroMedicamentoComponent.vue";
@@ -37,6 +38,11 @@ const routes = [
         path: 'usuario/:id',
         component: EditarUsuarioCompoment,
         name: 'editarusuario'
+      },
+      {
+        path: 'paciente/:id',
+        component: EditarPacienteComponent,
+        name: 'editarpaciente'
       },
       {
         path: 'cadastropaciente',

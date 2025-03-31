@@ -23,8 +23,10 @@
                     <td>{{ paciente.cor }}</td>
                     <td>{{ paciente.idade }}</td>
                     <td>
-                        <button class="btn btn-info me-2">Editar</button>
-                        <button class="btn btn-danger">Apagar</button>
+                        <router-link :to="{name: 'editarpaciente', params: {id: paciente.id}}" class="btn btn-sm btn-primary">
+                            <i class="bi bi-pencil-square" style="cursor: pointer"></i>
+                        </router-link>                        
+                       <!-- <button class="btn btn-danger">Apagar</button> -->
                     </td>
                 </tr>
             </tbody>
