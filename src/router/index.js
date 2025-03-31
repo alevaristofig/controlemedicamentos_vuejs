@@ -7,6 +7,7 @@ import PacienteComponent from "@/components/pacientes/PacienteComponent.vue";
 import EditarPacienteComponent from "@/components/pacientes/EditarPacienteComponent.vue";
 import CadastroPacienteComponent from "@/components/pacientes/CadastroPacienteComponent.vue";
 import MedicamentoCompoment from "@/components/medicamentos/MedicamentoCompoment.vue";
+import EditarMedicamentoComponent from "@/components/medicamentos/EditarMedicamentoComponent.vue";
 import CadastroMedicamentoComponent from "@/components/medicamentos/CadastroMedicamentoComponent.vue";
 import IndexAplicacao from "@/components/aplicacao/IndexAplicacao.vue";
 import CadastroAplicacao from "@/components/aplicacao/CadastroAplicacao.vue";
@@ -53,6 +54,11 @@ const routes = [
         path: 'medicamento',
         component: MedicamentoCompoment,
         name: 'medicamentos'
+      },
+      {
+        path: 'medicamento/:id',
+        component: EditarMedicamentoComponent,
+        name: 'editarmedicamento'
       },
       {
         path: 'cadastromedicamento',

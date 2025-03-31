@@ -12,6 +12,7 @@
                     <th scope="col">PREÇO</th>
                     <th scope="col">QUANTIDADE</th>
                     <th scope="col">MANIPULADO</th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
@@ -21,6 +22,11 @@
                     <td>{{ medicamento.preco }}</td>
                     <td>{{ medicamento.quantidade }}</td>
                     <td>{{ medicamento.manipulado == true ? 'Sim' : 'Não' }}</td>
+                    <td>
+                        <router-link :to="{name: 'editarmedicamento', params: {id: medicamento.id}}" class="btn btn-sm btn-primary">
+                            <i class="bi bi-pencil-square" style="cursor: pointer"></i>
+                        </router-link> 
+                    </td>
                 </tr>
             </tbody>
         </table>
