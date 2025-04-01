@@ -1,4 +1,5 @@
 import axios from "axios";
+import bcrypt from "bcryptjs";
 
 export default {
     data: () => ({
@@ -6,6 +7,9 @@ export default {
         nome: '',
         email: '',
         senha: '',
+        classNome: false,
+        classEmail: false,
+        classSenha: false
     }),
     methods: {
         listar() {
@@ -29,8 +33,57 @@ export default {
                     alert('Ocorreu um erro');                    
             });           
         },
-        editarUsuario() {
-            console.log(this.nome)
+        editarUsuario(id) {           
+            if(this.validarCampos()) {                                 
+                let salt = bcrypt.genSaltSync(10);
+                let senha = bcrypt.hashSync(this.senha,salt);
+
+                let data = {
+                    'nome': this.nome,
+                    'email': this.email,
+                    'senha': senha
+                }
+
+                axios.put(`http://localhost:8083/v1/usuarios/${id}`,data)
+                    .then(() => {
+                        alert('Usuario atualizado com sucesso');
+                        this.$router.push({ name: 'usuario'});
+                    })
+                    .catch((error) =>{
+                        alert('Ocorreu um erro');
+                        console.log(error);
+                });
+            }           
+        },
+        validarCampos() {    
+            let erro = false;
+
+            if(this.nome === '') {                
+                this.classNome = true;
+                erro = true;
+            } else {
+                this.classNome = false;
+            }
+
+            if(this.email === '') {                
+                this.classEmail = true;
+                erro = true;
+            } else {
+                this.classEmail = false;
+            }
+
+            if(this.senha === '') {                
+                this.classSenha = true;
+                erro = true;
+            } else {
+                this.classSenha = false;
+            }
+
+            if(erro) {
+                return false;
+            }
+
+            return true;
         }
     }
 }

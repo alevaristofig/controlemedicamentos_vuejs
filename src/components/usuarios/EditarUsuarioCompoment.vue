@@ -19,7 +19,7 @@
             </div>
         </div>
         <div>
-            <button type="button" class="btn btn-primary" @click="editarUsuario">Editar</button>
+            <button type="button" class="btn btn-primary" @click="editarUsuario(this.$route.params.id)">Editar</button>
         </div>
     </div>
 </template>
