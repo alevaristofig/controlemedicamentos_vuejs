@@ -1,5 +1,6 @@
 <template>
-    <div>       
+    <div> 
+        <input type="hidden" v-model="usuario" />    
         <div class="mb-3 mt-3 row">
             <label class="col-sm-1 col-form-label">Nome*</label>
             <div class="col-sm-10">
@@ -31,7 +32,7 @@
             </div>
         </div>
         <div>
-            <button type="button" class="btn btn-primary" @click="salvarPaciente">Atualizar</button>
+            <button type="button" class="btn btn-primary" @click="atualizar(this.$route.params.id)">Atualizar</button>
         </div>
     </div>
 </template>

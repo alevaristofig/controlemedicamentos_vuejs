@@ -8,6 +8,7 @@ export default {
         peso: '',
         cor: '',
         idade: '',
+        usuario: '',
         classNome: false,
         classRaca: false,
         classPeso: false,
@@ -32,6 +33,7 @@ export default {
                         this.peso = response.data.peso
                         this.cor = response.data.cor
                         this.idade = response.data.idade
+                        this.usuario = response.data.usuario.id;
                     })
                     .catch((error) =>{                        
                         console.log(error);
@@ -45,6 +47,7 @@ export default {
                     peso: this.peso,
                     cor:  this.cor,
                     idade: this.idade,
+                    usuario: this.usuario
                 }
 
 
@@ -58,6 +61,30 @@ export default {
                         console.log(error);
                 })
             }            
+        },
+        atualizar(id) {
+            if(!this.validarCampos()) {  
+                let data = {
+                    nome: this.nome,
+                    raca: this.raca,
+                    peso: this.peso,
+                    cor:  this.cor,
+                    idade: this.idade,
+                    usuario: {
+                        'id': this.usuario
+                    }
+                }                
+
+                axios.put(`http://localhost:8083/v1/pacientes/${id}`,data)
+                    .then(() => {
+                        alert('Paciente atualizado com sucesso');
+                        this.$router.push({ name: 'pacientes'});
+                    })
+                    .catch((error) =>{
+                        alert('Ocorreu um erro');
+                        console.log(error);
+                })
+            }
         },
         validarCampos() {  
             let erro = false;
