@@ -1,7 +1,6 @@
 <template>
-    <div>
-        <h5>Medicamentos</h5>
-        <router-link class="list-group-item" :to="{ name: 'cadastromedicamento'}">
+    <div>        
+        <router-link class="list-group-item mt-3" :to="{ name: 'cadastromedicamento'}">
             <button class="btn btn-primary">Adicionar</button>
         </router-link>        
         <table class="table table-hover">

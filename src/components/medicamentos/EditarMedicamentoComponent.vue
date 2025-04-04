@@ -32,7 +32,7 @@
             </div>
         </div>
         <div>
-            <button type="button" class="btn btn-primary" @click="salvarMedicamentos">Atualizar</button>
+            <button type="button" class="btn btn-primary" @click="atualizar(this.$route.params.id)">Atualizar</button>
         </div>
     </div>
 </template>

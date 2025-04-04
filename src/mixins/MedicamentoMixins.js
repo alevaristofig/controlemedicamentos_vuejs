@@ -39,7 +39,26 @@ export default {
                 alert('entrou')
             }            
         },
+        atualizar(id) {
+            if(!this.validarCampos()) {  
+                let data = {
+                    nome: this.nome,
+                    preco: this.preco,
+                    quantidade: this.quantidade,
+                    manipulado: this.manipulado === 'S' ? true : false
+                }
 
+                axios.put(`http://localhost:8083/v1/medicamentos/${id}`,data)
+                    .then((response) => {                    
+                        alert('Medicamento atualizado com sucesso');
+                        this.$router.push({ name: 'medicamentos'});
+                    })
+                    .catch((error) =>{
+                        console.log(error)
+                        alert('Ocorreu um erro');                    
+                });
+            } 
+        },
         validarCampos() {  
             let erro = false;
     
