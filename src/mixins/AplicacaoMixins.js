@@ -7,19 +7,9 @@ export default {
         classMedicamento: false,
         finalizado: '',
         paciente: '',
-        pacientes: [
-            { id: 1, nome: 'Rubi' },
-            { id: 2, nome: 'Maia' },
-            { id: 3, nome: 'Lua' },
-            { id: 4, nome: 'Tuntun' }
-        ],
+        pacientes: [],
         medicamento: '',
-        medicamentos: [
-            { id: 1, nome: 'Apoquel' },
-            { id: 2, nome: 'Braveto' },
-            { id: 3, nome: 'Predinsona' },
-            { id: 4, nome: 'Cortotic' }
-        ],
+        medicamentos: [],
     }),
     methods: {
         listar() {
@@ -30,6 +20,24 @@ export default {
                     .catch((error) =>{                        
                         console.log(error);
                 });
+        },
+        listarPacientes() {
+            axios.get('http://localhost:8083/v1/pacientes')
+                    .then((response) => {                        
+                        this.pacientes = response.data
+                    })
+                    .catch((error) =>{                        
+                        console.log(error);
+            })
+        },
+        listarMedicamentos() {
+            axios.get('http://localhost:8083/v1/medicamentos')
+                .then((response) => {                    
+                    this.medicamentos = response.data;
+                })
+                .catch((error) =>{
+                    alert('Ocorreu um erro');                    
+            });
         },
         aplicarMedicamentos() {
             if(this.validarCampos()) {                 
@@ -52,7 +60,6 @@ export default {
                     });
             }            
         },
-
         validarCampos() {    
             let erro = false;
 

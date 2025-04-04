@@ -49,8 +49,7 @@ export default {
                     idade: this.idade,
                     usuario: this.usuario
                 }
-
-
+                
                 axios.post('http://localhost:8080/v1/pacientes',data)
                     .then(() => {
                         alert('Paciente cadastrado com sucesso');

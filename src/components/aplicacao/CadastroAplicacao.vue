@@ -55,6 +55,10 @@ import AplicacaoMixins from '@/mixins/AplicacaoMixins';
 
 export default {
     name: 'CadastroAplicacao',
-    mixins: [AplicacaoMixins]
+    mixins: [AplicacaoMixins],
+    created() {
+        this.listarPacientes();
+        this.listarMedicamentos();
+    }
 }
 </script>
