@@ -36,7 +36,27 @@ export default {
         },
         salvarMedicamentos() {
             if(!this.validarCampos()) {  
-                alert('entrou')
+                let data = {
+                    nome: this.nome,
+                    preco: this.preco,
+                    quantidade: this.quantidade,
+                    manipulado: this.manipulado === 'S' ? true : false
+                }
+
+                axios.post(`http://localhost:8080/v1/medicamentos`,data)
+                    .then((response) => {                    
+                        alert('Medicamento cadastrado com sucesso');
+                       // this.$router.push({ name: 'medicamentos'});
+
+                       this.nome = '';
+                       this.preco = '',
+                       this.quantidade = '',
+                       this.manipulado = '';
+                    })
+                    .catch((error) =>{
+                        console.log(error)
+                        alert('Ocorreu um erro');                    
+                });
             }            
         },
         atualizar(id) {
