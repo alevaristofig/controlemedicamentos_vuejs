@@ -2,6 +2,7 @@ import axios from "axios";
 
 export default {
     data: () => ({
+        url: JSON.parse(sessionStorage.getItem('linksUrls')),
         pacientes: [],
         nome: '',
         raca: '',
@@ -16,8 +17,8 @@ export default {
         classIdade: false,
     }),
     methods: {
-        listar(){
-            axios.get('http://localhost:8083/v1/pacientes')
+        listar(){            
+            axios.get(this.url.pacientes.href)
                     .then((response) => {                        
                         this.pacientes = response.data
                     })
@@ -26,7 +27,7 @@ export default {
             })
         },
         buscar(id) {
-            axios.get(`http://localhost:8083/v1/pacientes/${id}`)
+            axios.get(`${this.url.pacientes.href}/${id}`)
                     .then((response) => {                        
                         this.nome = response.data.nome
                         this.raca = response.data.raca
@@ -74,7 +75,7 @@ export default {
                     }
                 }                
 
-                axios.put(`http://localhost:8083/v1/pacientes/${id}`,data)
+                axios.put(`${this.url.pacientes.href}/${id}`,data)
                     .then(() => {
                         alert('Paciente atualizado com sucesso');
                         this.$router.push({ name: 'pacientes'});

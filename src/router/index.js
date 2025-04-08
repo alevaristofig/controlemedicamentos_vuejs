@@ -1,4 +1,5 @@
 import { createRouter, createWebHashHistory } from "vue-router";
+import LoginView from "@/views/LoginView.vue";
 import HomeView from "../views/HomeView.vue";
 import UsuarioCompoment from "@/components/usuarios/UsuarioCompoment.vue";
 import CadastroUsuarioView from "@/views/CadastroUsuarioView.vue";
@@ -81,6 +82,11 @@ const routes = [
     path: "/cadastrousuario",
     name: "cadastrousuario",
     component: CadastroUsuarioView
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: LoginView
   }
 ];
 
