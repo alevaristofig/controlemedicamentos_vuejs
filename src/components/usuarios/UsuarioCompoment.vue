@@ -18,10 +18,12 @@
                     <td>{{usuario.nome}}</td>
                     <td>{{usuario.email}}</td>
                     <td>
-                        <router-link :to="{name: 'editarusuario', params: {id: usuario.id}}" class="btn btn-sm btn-primary">
+                        <router-link :to="{name: 'editarusuario', params: {id: usuario.id}}" class="btn btn-sm btn-primary me-2">
                             <i class="bi bi-pencil-square" style="cursor: pointer"></i>
                         </router-link>                         
-                        <!--<button class="btn btn-danger">Apagar</button>-->
+                        <button class="btn btn-sm btn-danger" @click="apagar(usuario.id)">
+                            <i class="bi bi-trash-fill" style="cursor: pointer"></i>
+                        </button>
                     </td>
                 </tr>
             </tbody>

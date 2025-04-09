@@ -1,7 +1,6 @@
 <template>
-    <div>
-        <h5>Cadastro Paciente</h5>
-        <div class="mb-3 row">
+    <div>        
+        <div class="mb-3 row mt-3">
             <label class="col-sm-1 col-form-label">Nome*</label>
             <div class="col-sm-10">
                 <input type="text" class="form-control" :class="{'border-danger': classNome}" v-model="nome"/>

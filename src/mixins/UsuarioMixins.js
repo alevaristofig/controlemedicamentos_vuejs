@@ -56,6 +56,9 @@ export default {
                 });
             }           
         },
+        apagar(id) {
+            alert(id)
+        },
         validarCampos() {    
             let erro = false;
 
