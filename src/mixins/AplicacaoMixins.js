@@ -2,6 +2,7 @@ import axios from "axios";
 
 export default {
     data: () => ({
+        url: JSON.parse(sessionStorage.getItem('linksUrls')),
         aplicacoes: [],
         classPaciente: false,
         classMedicamento: false,
@@ -13,7 +14,7 @@ export default {
     }),
     methods: {
         listar() {
-            axios.get('http://localhost:8083/v1/aplicacao')
+            axios.get(this.url.aplicacao.href)
                     .then((response) => {
                         this.aplicacoes = response.data
                     })
@@ -22,7 +23,7 @@ export default {
                 });
         },
         listarPacientes() {
-            axios.get('http://localhost:8083/v1/pacientes')
+            axios.get(this.url.pacientes.href)
                     .then((response) => {                        
                         this.pacientes = response.data
                     })
@@ -31,7 +32,7 @@ export default {
             })
         },
         listarMedicamentos() {
-            axios.get('http://localhost:8083/v1/medicamentos')
+            axios.get(this.url.medicamentos.href)
                 .then((response) => {                    
                     this.medicamentos = response.data;
                 })
@@ -49,7 +50,7 @@ export default {
                     'dataAplicacao': dataAtual.toISOString()
                 }
 
-                axios.post('http://localhost:8080/v1/aplicacao',data)
+                axios.post(`http://localhost:8080/v1/aplicacao`,data)
                     .then(() => {
                         alert('Medicamento aplicado com sucesso');
                         this.$router.push('/');
