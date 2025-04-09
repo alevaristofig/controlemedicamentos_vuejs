@@ -7,10 +7,8 @@ export default {
     methods: {
         buscarUrls() {
             axios.get(this.url)
-                .then((response) => {                    
-                    console.log('resp',response.data._links)
-                    sessionStorage.setItem('linksUrls',JSON.stringify(response.data._links));
-                    console.log('urls',sessionStorage.getItem('linksUrls'))
+                .then((response) => {                                        
+                    sessionStorage.setItem('linksUrls',JSON.stringify(response.data._links));                    
                 })
                 .catch((error) =>{
                     console.log(error)               

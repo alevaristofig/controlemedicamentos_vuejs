@@ -2,6 +2,7 @@ import axios from "axios";
 
 export default {
     data: () => ({
+        url: JSON.parse(sessionStorage.getItem('linksUrls')),
         medicamentos: [],
         nome: '',
         preco: '',
@@ -14,7 +15,7 @@ export default {
     }),
     methods: {
         listar() {
-            axios.get('http://localhost:8083/v1/medicamentos')
+            axios.get(this.url.medicamentos.href)
                 .then((response) => {                    
                     this.medicamentos = response.data;
                 })
@@ -23,7 +24,7 @@ export default {
             });
         },
         buscar(id) {
-            axios.get(`http://localhost:8083/v1/medicamentos/${id}`)
+            axios.get(`${this.url.medicamentos.href}/${id}`)
                 .then((response) => {                    
                     this.nome = response.data.nome
                     this.preco = response.data.preco
@@ -68,7 +69,7 @@ export default {
                     manipulado: this.manipulado === 'S' ? true : false
                 }
 
-                axios.put(`http://localhost:8083/v1/medicamentos/${id}`,data)
+                axios.put(`${this.url.medicamentos.href}/${id}`,data)
                     .then((response) => {                    
                         alert('Medicamento atualizado com sucesso');
                         this.$router.push({ name: 'medicamentos'});
