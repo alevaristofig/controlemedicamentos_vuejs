@@ -3,6 +3,7 @@ import bcrypt from "bcryptjs";
 
 export default {
     data: () => ({
+        url: JSON.parse(sessionStorage.getItem('linksUrls')),
         usuarios: [],
         nome: '',
         email: '',
@@ -13,7 +14,7 @@ export default {
     }),
     methods: {
         listar() {
-            axios.get('http://localhost:8083/v1/usuarios')
+            axios.get(this.url.usuarios.href)
                 .then((response) => {                    
                     this.usuarios = response.data;
                 })
@@ -22,7 +23,7 @@ export default {
             });
         },
         buscar(id) {
-            axios.get(`http://localhost:8083/v1/usuarios/${id}`)
+            axios.get(`${this.url.usuarios.href}/${id}`)
                 .then((response) => {                                        
                     this.nome = response.data.nome;
                     this.email = response.data.email;
@@ -44,7 +45,7 @@ export default {
                     'senha': senha
                 }
 
-                axios.put(`http://localhost:8083/v1/usuarios/${id}`,data)
+                axios.put(`${this.url.usuarios.href}/${id}`,data)
                     .then(() => {
                         alert('Usuario atualizado com sucesso');
                         this.$router.push({ name: 'usuario'});
